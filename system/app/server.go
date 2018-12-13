@@ -14,13 +14,14 @@ func NewServer() Server {
 }
 
 // Init values
-func (s *Server) Init(port string) {
+func (serv *Server) Init(port string) {
 	log.Println("Initializing server...")
-	s.port = ":" + port
+	serv.port = ":" + port
 }
 
 // Start server
-func (s *Server) Start() {
-	log.Println("Server starting on port:", s.port)
-	http.ListenAndServe(s.port, nil)
+func (serv *Server) Start() {
+	log.Println("Server starting on port:", serv.port)
+	log.Println("http://localhost" + serv.port)
+	http.ListenAndServe(serv.port, nil)
 }
